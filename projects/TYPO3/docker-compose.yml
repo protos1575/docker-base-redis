@@ -5,7 +5,7 @@ services:
       links:
         - mail
         - mysql
-#        - redis
+        - redis
 #        - postgres
 #        - elasticsearch
 #        - solr
@@ -102,9 +102,10 @@ services:
   #######################################
   # Redis
   #######################################
-#    redis:
-#      build:
-#        context: redis
-#      container_name: ${COMPOSE_PROJECT_NAME}_redis
-#      volumes:
-#        - ./../data/redis:/data/:delegated
+    redis:
+      build:
+        context: redis
+      container_name: ${COMPOSE_PROJECT_NAME}_redis
+      command: redis-server --requirepass pwd
+      volumes:
+        - ./../data/redis:/data/:delegated
