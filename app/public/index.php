@@ -56,6 +56,7 @@ var_dump($tom); echo "\n";
 // We can get a single field from our hash if we want
 $tomsage = $redis->hget('tom', 'age');
 echo "Tom is $tomsage years old.\n";
+
 // We can increment a single field from the hash as well
 $redis->hincrby('tom', 'age', '10');
 $tom = $redis->hgetall('tom');
